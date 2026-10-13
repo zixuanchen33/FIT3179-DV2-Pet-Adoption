@@ -1,0 +1,175 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 650,
+  "height": 400,
+
+  "data": {
+    "url": "data/petrescue_state_2025.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.cat_adoption_rate - datum.dog_adoption_rate",
+      "as": "difference"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "color": "#c9c9c9"
+      },
+
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "field": "difference",
+            "order": "descending"
+          },
+          "axis": {
+            "labelFontSize": 13
+          }
+        },
+
+        "x": {
+          "field": "cat_adoption_rate",
+          "type": "quantitative",
+          "title": "Adoption rate (%)",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "grid": true
+          }
+        },
+
+        "x2": {
+          "field": "dog_adoption_rate"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "fold": [
+            "cat_adoption_rate",
+            "dog_adoption_rate"
+          ],
+          "as": [
+            "species_field",
+            "adoption_rate"
+          ]
+        },
+        {
+          "calculate": "datum.species_field === 'cat_adoption_rate' ? 'Cats' : 'Dogs'",
+          "as": "species"
+        }
+      ],
+
+      "mark": {
+        "type": "circle",
+        "size": 180,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "field": "difference",
+            "order": "descending"
+          }
+        },
+
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "title": "Adoption rate (%)",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "title": "Species",
+          "scale": {
+            "domain": [
+              "Cats",
+              "Dogs"
+            ],
+            "range": [
+              "#657a58",
+              "#d28a5d"
+            ]
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "species",
+            "type": "nominal",
+            "title": "Species"
+          },
+          {
+            "field": "adoption_rate",
+            "type": "quantitative",
+            "title": "Adoption rate (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "difference",
+            "type": "quantitative",
+            "title": "Cat − dog difference",
+            "format": "+.1f"
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    },
+
+    "axis": {
+      "domainColor": "#b8b8b8",
+      "tickColor": "#b8b8b8",
+      "gridColor": "#eeeeee"
+    }
+  }
+}

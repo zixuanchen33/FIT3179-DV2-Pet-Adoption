@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 720,
+  "height": 500,
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://gist.githubusercontent.com/Swathireddy05/c2053834dd50f7c29b78537fe7fbbb77/raw/Australia.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8e9e2",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/petrescue_state_2025.csv"
+      },
+
+      "mark": {
+        "type": "circle",
+        "color": "#586b4d",
+        "opacity": 0.75,
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+
+        "size": {
+          "field": "total_adoptions",
+          "type": "quantitative",
+          "title": "Total adoptions",
+          "scale": {
+            "range": [
+              80,
+              5000
+            ]
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "total_adoptions",
+            "type": "quantitative",
+            "title": "Total adoptions",
+            "format": ","
+          },
+          {
+            "field": "cat_adoptions",
+            "type": "quantitative",
+            "title": "Cat adoptions",
+            "format": ","
+          },
+          {
+            "field": "dog_adoptions",
+            "type": "quantitative",
+            "title": "Dog adoptions",
+            "format": ","
+          },
+          {
+            "field": "other_adoptions",
+            "type": "quantitative",
+            "title": "Other pet adoptions",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    }
+  }
+}

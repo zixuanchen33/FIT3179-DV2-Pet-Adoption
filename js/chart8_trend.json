@@ -1,0 +1,114 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 650,
+  "height": 420,
+
+  "data": {
+    "url": "data/petrescue_trends.csv"
+  },
+
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 120
+    },
+    "strokeWidth": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "period",
+      "type": "ordinal",
+      "title": "Financial year",
+      "sort": [
+        "2021-22",
+        "2022-23",
+        "2023-24"
+      ],
+      "axis": {
+        "labelFontSize": 13,
+        "titleFontSize": 13,
+        "labelAngle": 0
+      }
+    },
+
+    "y": {
+      "field": "adoptions",
+      "type": "quantitative",
+      "title": "Number of adoptions",
+      "scale": {
+        "zero": true
+      },
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "grid": true,
+        "format": ",.0f"
+      }
+    },
+
+    "color": {
+      "field": "species",
+      "type": "nominal",
+      "title": "Species",
+      "scale": {
+        "domain": [
+          "Cat",
+          "Dog"
+        ],
+        "range": [
+          "#657a58",
+          "#d28a5d"
+        ]
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "period",
+        "type": "ordinal",
+        "title": "Financial year"
+      },
+      {
+        "field": "species",
+        "type": "nominal",
+        "title": "Species"
+      },
+      {
+        "field": "adoptions",
+        "type": "quantitative",
+        "title": "Adoptions",
+        "format": ",.0f"
+      },
+      {
+        "field": "median_tta_days",
+        "type": "quantitative",
+        "title": "Median days to adoption",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    },
+
+    "axis": {
+      "domainColor": "#b8b8b8",
+      "tickColor": "#b8b8b8",
+      "gridColor": "#eeeeee"
+    }
+  }
+}

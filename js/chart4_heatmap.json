@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 600,
+  "height": 400,
+
+  "data": {
+    "url": "data/petrescue_state_2025.csv"
+  },
+
+  "transform": [
+    {
+      "fold": [
+        "cat_adoption_rate",
+        "dog_adoption_rate"
+      ],
+      "as": [
+        "species_field",
+        "adoption_rate"
+      ]
+    },
+    {
+      "calculate": "datum.species_field === 'cat_adoption_rate' ? 'Cats' : 'Dogs'",
+      "as": "species"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 5,
+        "stroke": "#ffffff",
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+        "x": {
+          "field": "species",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Cats",
+            "Dogs"
+          ],
+          "axis": {
+            "labelFontSize": 14,
+            "labelFontWeight": "bold",
+            "labelAngle": 0
+          }
+        },
+
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "ACT",
+            "NSW",
+            "NT",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA"
+          ],
+          "axis": {
+            "labelFontSize": 13
+          }
+        },
+
+        "color": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "title": "Adoption rate (%)",
+          "scale": {
+            "scheme": "yellowgreen",
+            "domain": [
+              60,
+              100
+            ]
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "species",
+            "type": "nominal",
+            "title": "Species"
+          },
+          {
+            "field": "adoption_rate",
+            "type": "quantitative",
+            "title": "Adoption rate (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 15,
+        "fontWeight": "bold"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Cats",
+            "Dogs"
+          ]
+        },
+
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "ACT",
+            "NSW",
+            "NT",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA"
+          ]
+        },
+
+        "text": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+
+        "color": {
+          "condition": {
+            "test": "datum.adoption_rate >= 85",
+            "value": "#ffffff"
+          },
+          "value": "#333333"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "right",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    },
+
+    "axis": {
+      "domain": false,
+      "ticks": false
+    }
+  }
+}

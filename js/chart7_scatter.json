@@ -1,0 +1,249 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 650,
+  "height": 430,
+
+  "data": {
+    "url": "data/petrescue_factors_2025.csv"
+  },
+
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 220,
+        "opacity": 0.85,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+
+      "encoding": {
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "title": "Adoption rate (%)",
+          "scale": {
+            "domain": [70, 95]
+          },
+          "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "grid": true
+          }
+        },
+
+        "y": {
+          "field": "median_tta_days",
+          "type": "quantitative",
+          "title": "Median time to adoption (days)",
+          "scale": {
+            "domain": [0, 45]
+          },
+          "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "grid": true
+          }
+        },
+
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "title": "Species",
+          "scale": {
+            "domain": [
+              "Cat",
+              "Dog"
+            ],
+            "range": [
+              "#657a58",
+              "#d28a5d"
+            ]
+          }
+        },
+
+        "shape": {
+          "field": "species",
+          "type": "nominal",
+          "title": "Species"
+        },
+
+        "tooltip": [
+          {
+            "field": "cohort",
+            "type": "nominal",
+            "title": "Pet group"
+          },
+          {
+            "field": "species",
+            "type": "nominal",
+            "title": "Species"
+          },
+          {
+            "field": "age_group",
+            "type": "nominal",
+            "title": "Age group"
+          },
+          {
+            "field": "size",
+            "type": "nominal",
+            "title": "Size"
+          },
+          {
+            "field": "adoption_rate",
+            "type": "quantitative",
+            "title": "Adoption rate (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "median_tta_days",
+            "type": "quantitative",
+            "title": "Median days to adoption",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.cohort !== 'No children under 5 restriction'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 9,
+        "fontSize": 11,
+        "color": "#555555"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [70, 95]
+          }
+        },
+
+        "y": {
+          "field": "median_tta_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 45]
+          }
+        },
+
+        "text": {
+          "field": "cohort"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.cohort === 'No children under 5 restriction' && datum.species === 'Dog'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 9,
+        "dy": -5,
+        "fontSize": 11,
+        "color": "#555555"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [70, 95]
+          }
+        },
+
+        "y": {
+          "field": "median_tta_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 45]
+          }
+        },
+
+        "text": {
+          "field": "cohort"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.cohort === 'No children under 5 restriction' && datum.species === 'Cat'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 9,
+        "dy": 5,
+        "fontSize": 11,
+        "color": "#555555"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [70, 95]
+          }
+        },
+
+        "y": {
+          "field": "median_tta_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 45]
+          }
+        },
+
+        "text": {
+          "field": "cohort"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    },
+
+    "axis": {
+      "domainColor": "#b8b8b8",
+      "tickColor": "#b8b8b8",
+      "gridColor": "#eeeeee"
+    }
+  }
+}

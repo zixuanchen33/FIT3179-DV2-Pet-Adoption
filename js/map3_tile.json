@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 650,
+  "height": 420,
+
+  "data": {
+    "url": "data/petrescue_state_2025.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.cat_adoption_rate - datum.dog_adoption_rate",
+      "as": "rate_difference"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "square",
+        "size": 8500,
+        "stroke": "#ffffff",
+        "strokeWidth": 3,
+        "cornerRadius": 6
+      },
+
+      "encoding": {
+        "x": {
+          "field": "tile_x",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [-0.5, 3.5]
+          }
+        },
+
+        "y": {
+          "field": "tile_y",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [3.5, -0.5]
+          }
+        },
+
+        "color": {
+          "field": "rate_difference",
+          "type": "quantitative",
+          "title": "Cat − dog rate (pp)",
+          "scale": {
+            "domainMid": 0,
+            "scheme": "redblue"
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "cat_adoption_rate",
+            "type": "quantitative",
+            "title": "Cat adoption rate (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "dog_adoption_rate",
+            "type": "quantitative",
+            "title": "Dog adoption rate (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "rate_difference",
+            "type": "quantitative",
+            "title": "Difference (pp)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 18,
+        "fontWeight": "bold",
+        "color": "#ffffff"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "tile_x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [-0.5, 3.5]
+          }
+        },
+
+        "y": {
+          "field": "tile_y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [3.5, -0.5]
+          }
+        },
+
+        "text": {
+          "field": "state"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "gradientLength": 260
+    }
+  }
+}

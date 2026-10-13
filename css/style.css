@@ -1,0 +1,414 @@
+/* ========================================
+   GENERAL
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background-color: #f7f5f0;
+
+  color: #292929;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  line-height: 1.6;
+}
+
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding:
+    100px
+    60px
+    80px;
+
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #6b7355;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 7vw, 82px);
+
+  line-height: 1.05;
+
+  color: #363d2f;
+}
+
+.subtitle {
+  max-width: 750px;
+
+  margin:
+    28px
+    auto
+    0;
+
+  font-size: 20px;
+
+  color: #606060;
+}
+
+
+
+/* ========================================
+   STORY SECTIONS
+======================================== */
+
+.story-section {
+  padding:
+    90px
+    30px;
+
+  background-color: #ffffff;
+}
+
+.story-section.alternate {
+  background-color: #eef0e8;
+}
+
+.section-heading {
+  max-width: 900px;
+
+  margin:
+    0
+    auto
+    60px;
+
+  text-align: center;
+}
+
+.section-number {
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  color: #7b8562;
+}
+
+.section-heading h2 {
+  margin:
+    0
+    0
+    16px;
+
+  font-size: 40px;
+
+  line-height: 1.2;
+
+  color: #363d2f;
+}
+
+.section-heading > p:last-child {
+  max-width: 700px;
+
+  margin:
+    0
+    auto;
+
+  font-size: 18px;
+
+  color: #666666;
+}
+
+
+
+/* ========================================
+   CHART CARDS
+======================================== */
+
+.chart-card {
+  max-width: 1000px;
+
+  margin:
+    0
+    auto
+    70px;
+
+  padding: 40px;
+
+  background-color: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0
+    4px
+    18px
+    rgba(0, 0, 0, 0.07);
+}
+
+.alternate .chart-card {
+  background-color: #fafafa;
+}
+
+.chart-text {
+  max-width: 760px;
+
+  margin-bottom: 30px;
+}
+
+.chart-label {
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  color: #7b8562;
+}
+
+.chart-text h3 {
+  margin:
+    0
+    0
+    10px;
+
+  font-size: 28px;
+
+  line-height: 1.25;
+
+  color: #333333;
+}
+
+.chart-text p:last-child {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: #666666;
+}
+
+
+
+/* ========================================
+   VISUALISATIONS
+======================================== */
+
+.visualisation {
+  width: 100%;
+
+  min-height: 450px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: auto;
+}
+
+.placeholder {
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    150px
+    30px;
+
+  text-align: center;
+
+  border:
+    2px
+    dashed
+    #c6cbb8;
+
+  border-radius: 12px;
+
+  background-color: #f4f5ef;
+
+  color: #777777;
+
+  font-size: 18px;
+}
+
+
+
+/* ========================================
+   VEGA
+======================================== */
+
+.vega-embed {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.vega-embed summary {
+  display: none;
+}
+
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+  padding:
+    70px
+    30px
+    35px;
+
+  background-color: #363d2f;
+
+  color: #ffffff;
+}
+
+.footer-content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 55px;
+}
+
+.footer-column h4 {
+  margin:
+    0
+    0
+    18px;
+
+  font-size: 17px;
+
+  color: #ffffff;
+}
+
+.footer-column p {
+  margin:
+    0
+    0
+    15px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color: #d8ddcf;
+}
+
+.footer-column a {
+  color: #d9e5b9;
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}
+
+.footer-note {
+  max-width: 1000px;
+
+  margin:
+    45px
+    auto
+    0;
+
+  padding-top: 25px;
+
+  border-top:
+    1px
+    solid
+    rgba(255, 255, 255, 0.18);
+}
+
+.footer-note p {
+  margin: 0;
+
+  max-width: 800px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: #bfc6b5;
+}
+
+
+
+/* ========================================
+   SMALL SCREENS
+======================================== */
+
+@media (max-width: 700px) {
+
+  .hero {
+    padding:
+      70px
+      24px
+      60px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+  }
+
+  .story-section {
+    padding:
+      65px
+      18px;
+  }
+
+  .section-heading h2 {
+    font-size: 32px;
+  }
+
+  .chart-card {
+    padding: 24px;
+  }
+
+  .chart-text h3 {
+    font-size: 23px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+}

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Who Finds a Home? | Pet Adoption in Australia</title>
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vega libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+
+<body>
+
+  <!-- ========================================
+       HERO
+  ========================================= -->
+
+  <header class="hero">
+
+    <p class="eyebrow">
+      PET ADOPTION IN AUSTRALIA
+    </p>
+
+    <h1>
+      Who Finds a Home?
+    </h1>
+
+    <p class="subtitle">
+      Exploring where pets are adopted, which animals find homes most easily,
+      what makes adoption more difficult, and how adoption patterns have changed.
+    </p>
+
+  </header>
+
+
+
+  <main>
+
+    <!-- ========================================
+         SECTION 1
+    ========================================= -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          01
+        </p>
+
+        <h2>
+          Where are pets being adopted?
+        </h2>
+
+        <p>
+          Adoption outcomes vary across Australia. These maps compare adoption
+          success and the volume of adoptions across states and territories.
+        </p>
+
+      </div>
+
+
+
+      <!-- CHART 1 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            MAP 1
+          </p>
+
+          <h3>
+            Dog adoption success varies across Australia
+          </h3>
+
+          <p>
+            Adoption rates reveal how successfully listed dogs find new homes
+            in different states and territories.
+          </p>
+
+        </div>
+
+
+        <div
+          id="map-choropleth"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 1 — Choropleth map
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- CHART 2 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            MAP 2
+          </p>
+
+          <h3>
+            Where are the most pets adopted?
+          </h3>
+
+          <p>
+            Total adoption numbers vary substantially across Australia.
+          </p>
+
+        </div>
+
+
+        <div
+          id="map-symbol"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 2 — Proportional-symbol map
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- CHART 3 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            MAP 3
+          </p>
+
+          <h3>
+            Cats or dogs: which are adopted more successfully?
+          </h3>
+
+          <p>
+            Comparing species within each state reveals differences between
+            cat and dog adoption outcomes.
+          </p>
+
+        </div>
+
+
+        <div
+          id="map-tile"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 3 — Tile-grid map
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 2
+    ========================================= -->
+
+    <section class="story-section alternate">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          02
+        </p>
+
+        <h2>
+          Which pets find homes most easily?
+        </h2>
+
+        <p>
+          Species and location influence both the likelihood of adoption and
+          how long an animal may wait for a home.
+        </p>
+
+      </div>
+
+
+
+      <!-- CHART 4 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            ADOPTION RATE
+          </p>
+
+          <h3>
+            Adoption success differs by species and state
+          </h3>
+
+          <p>
+            A heatmap makes it easier to identify states where cats or dogs
+            experience particularly high or low adoption rates.
+          </p>
+
+        </div>
+
+
+        <div
+          id="heatmap"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 4 — Heatmap
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- CHART 5 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            CAT VS DOG
+          </p>
+
+          <h3>
+            Cats and dogs do not have equal adoption outcomes
+          </h3>
+
+          <p>
+            Directly comparing both species shows where the largest differences
+            in adoption success occur.
+          </p>
+
+        </div>
+
+
+        <div
+          id="dumbbell"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 5 — Dumbbell chart
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- CHART 6 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            WAITING TIME
+          </p>
+
+          <h3>
+            Some pets wait much longer for a home
+          </h3>
+
+          <p>
+            Median time to adoption provides another perspective on how easily
+            cats and dogs find homes.
+          </p>
+
+        </div>
+
+
+        <div
+          id="lollipop"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 6 — Lollipop chart
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 3
+    ========================================= -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          03
+        </p>
+
+        <h2>
+          What makes adoption harder?
+        </h2>
+
+        <p>
+          Age, size and placement restrictions can affect both adoption
+          likelihood and how long pets remain available.
+        </p>
+
+      </div>
+
+
+
+      <!-- CHART 7 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            ADOPTION FACTORS
+          </p>
+
+          <h3>
+            Some groups face a longer road to adoption
+          </h3>
+
+          <p>
+            Adoption rate and waiting time can be viewed together to identify
+            pet groups that may be more difficult to place.
+          </p>
+
+        </div>
+
+
+        <div
+          id="difficulty-scatter"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 7 — Adoption difficulty scatterplot
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 4
+    ========================================= -->
+
+    <section class="story-section alternate">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          04
+        </p>
+
+        <h2>
+          How is pet adoption changing?
+        </h2>
+
+        <p>
+          Looking across multiple years shows whether adoption patterns for
+          cats and dogs are changing over time.
+        </p>
+
+      </div>
+
+
+
+      <!-- CHART 8 -->
+
+      <article class="chart-card">
+
+        <div class="chart-text">
+
+          <p class="chart-label">
+            TREND
+          </p>
+
+          <h3>
+            Cat and dog adoptions have followed different paths
+          </h3>
+
+          <p>
+            Comparing adoption counts across financial years shows how
+            successful pet placements have changed.
+          </p>
+
+        </div>
+
+
+        <div
+          id="adoption-trend"
+          class="visualisation">
+
+          <p class="placeholder">
+            Chart 8 — Adoption trend
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ========================================
+       FOOTER
+  ========================================= -->
+
+  <footer>
+
+    <div class="footer-content">
+
+
+      <!-- DATA SOURCES -->
+
+      <div class="footer-column">
+
+        <h4>
+          Data sources
+        </h4>
+
+        <p>
+          <strong>PetRescue</strong><br>
+          State of Pet Adoption reports and 2025 state profiles.
+        </p>
+
+        <p>
+          <a
+            href="https://www.petrescue.com.au/state-of-pet-adoption-platform-insights-2025-state-profiles"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            PetRescue State Profiles 2025
+
+          </a>
+        </p>
+
+
+        <p>
+          <strong>RSPCA Australia</strong><br>
+          Annual Statistics 2024–2025.
+        </p>
+
+        <p>
+          <a
+            href="https://www.rspca.org.au/about/annual-statistics/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            RSPCA Australia Annual Statistics
+
+          </a>
+        </p>
+
+      </div>
+
+
+
+      <!-- ABOUT -->
+
+      <div class="footer-column">
+
+        <h4>
+          About this visualisation
+        </h4>
+
+        <p>
+          Created for FIT3179 Data Visualisation 2,
+          Semester 2, 2026.
+        </p>
+
+        <p>
+          <strong>Author:</strong> Chen Zixuan
+        </p>
+
+        <p>
+          <strong>Date:</strong> 13 October 2026
+        </p>
+
+      </div>
+
+
+
+      <!-- AI -->
+
+      <div class="footer-column">
+
+        <h4>
+          AI acknowledgement
+        </h4>
+
+        <p>
+          Generative AI was used to assist with wording refinement,
+          Vega-Lite guidance, visualisation planning and feedback.
+          The final data preparation, implementation and design decisions
+          were completed and reviewed by the author.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- DATA NOTE -->
+
+    <div class="footer-note">
+
+      <p>
+        Adoption figures shown here represent data reported by PetRescue
+        and RSPCA Australia and should be interpreted within the scope of
+        those organisations and reporting periods.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- Our JavaScript -->
+
+  <script src="js/visualisations.js"></script>
+
+</body>
+
+</html>

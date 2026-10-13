@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 720,
+  "height": 500,
+
+  "data": {
+    "url": "https://gist.githubusercontent.com/Swathireddy05/c2053834dd50f7c29b78537fe7fbbb77/raw/Australia.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+      "from": {
+        "data": {
+          "url": "data/petrescue_state_2025.csv"
+        },
+        "key": "state_name",
+        "fields": [
+          "state",
+          "dog_adoption_rate",
+          "dog_adoptions",
+          "dog_listings"
+        ]
+      }
+    },
+    {
+      "filter": "isValid(datum.dog_adoption_rate)"
+    }
+  ],
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#ffffff",
+    "strokeWidth": 1.5
+  },
+
+  "encoding": {
+    "color": {
+      "field": "dog_adoption_rate",
+      "type": "quantitative",
+      "title": "Dog adoption rate (%)",
+      "scale": {
+        "scheme": "yellowgreen"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "properties.STATE_NAME",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "dog_adoption_rate",
+        "type": "quantitative",
+        "title": "Dog adoption rate (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "dog_adoptions",
+        "type": "quantitative",
+        "title": "Dog adoptions",
+        "format": ","
+      },
+      {
+        "field": "dog_listings",
+        "type": "quantitative",
+        "title": "Dog listings",
+        "format": ","
+      }
+    ]
+  },
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    }
+  }
+}

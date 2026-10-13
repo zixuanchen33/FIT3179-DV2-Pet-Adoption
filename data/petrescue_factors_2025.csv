@@ -1,0 +1,10 @@
+species,cohort,age_group,size,adoption_rate,median_tta_days
+Cat,Kittens under 6 months,Kitten,All,93.0,7.0
+Cat,Senior cats,Senior,All,77.2,28.0
+Dog,Puppies,Puppy,All,86.1,10.9
+Dog,Small puppies,Puppy,Small,90.1,6.4
+Dog,Large adult dogs,Adult,Large,73.0,16.0
+Dog,No children under 5 restriction,All,All,76.0,29.0
+Dog,No cats restriction,All,All,75.0,41.0
+Dog,No dogs restriction,All,All,73.0,37.0
+Cat,No children under 5 restriction,All,All,77.6,23.8

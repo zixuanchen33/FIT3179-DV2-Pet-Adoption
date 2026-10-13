@@ -1,0 +1,9 @@
+state,state_name,total_adoptions,enquiries,new_users,cat_listings,cat_adoptions,cat_adoption_rate,cat_median_tta_days,dog_listings,dog_adoptions,dog_adoption_rate,dog_median_tta_days,other_listings,other_adoptions,longitude,latitude,tile_x,tile_y
+ACT,Australian Capital Territory,68,265,496,14,9,78.6,49.4,69,55,78.9,25,4,4,149.0,-35.5,3,1
+NSW,New South Wales,17661,24243,7188,11450,10167,88.8,16,8141,7110,87.3,24.9,474,384,147.0,-32.2,2,1
+NT,Northern Territory,200,163,90,185,154,92,22.5,61,46,75,23.1,,,133.4,-19.5,1,0
+QLD,Queensland,15399,15708,5327,9147,8181,94,6,7434,6592,89,8,682,626,144.4,-22.5,2,0
+SA,South Australia,1032,782,666,1001,916,95,6.9,154,102,66,42.8,26,14,135.8,-30.0,1,1
+TAS,Tasmania,1057,127,137,978,950,98,5.9,64,63,98,12.2,58,44,146.6,-42.0,2,3
+VIC,Victoria,27793,47623,14137,20025,19435,97.1,8.5,8360,7419,88.7,11.9,1036,939,144.8,-36.6,2,2
+WA,Western Australia,3882,4005,1903,2895,2199,81,13.7,1765,1502,85,14.9,199,181,121.6,-25.0,0,1
