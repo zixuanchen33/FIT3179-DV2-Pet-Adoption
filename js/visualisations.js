@@ -148,3 +148,22 @@ vegaEmbed(
   .catch(function (error) {
     console.error("Error loading Chart 8:", error);
   });
+
+
+// ========================================
+// CHART 9 — RSPCA OUTCOMES
+// ========================================
+
+vegaEmbed(
+  "#rspca-outcomes",
+  "js/chart9_rspca_outcomes.json",
+  {
+    actions: false
+  }
+)
+  .then(function () {
+    console.log("Chart 9 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error("Error loading Chart 9:", error);
+  });
