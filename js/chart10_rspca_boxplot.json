@@ -1,0 +1,187 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 650,
+  "height": 360,
+
+  "data": {
+    "url": "data/rspca_state_2024_25.csv"
+  },
+
+  "transform": [
+    {
+      "fold": [
+        "cat_rehomed",
+        "dog_rehomed"
+      ],
+      "as": [
+        "rehomed_field",
+        "rehomed"
+      ]
+    },
+    {
+      "calculate": "datum.rehomed_field === 'cat_rehomed' ? 'Cats' : 'Dogs'",
+      "as": "species"
+    },
+    {
+      "calculate": "datum.rehomed_field === 'cat_rehomed' ? datum.cat_total : datum.dog_total",
+      "as": "total"
+    },
+    {
+      "calculate": "datum.rehomed / datum.total * 100",
+      "as": "rehoming_rate"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "extent": "min-max",
+        "size": 70
+      },
+
+      "encoding": {
+        "x": {
+          "field": "species",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Cats",
+            "Dogs"
+          ],
+          "axis": {
+            "labelFontSize": 14,
+            "labelFontWeight": "bold"
+          }
+        },
+
+        "y": {
+          "field": "rehoming_rate",
+          "type": "quantitative",
+          "title": "Rehomed animals (%)",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "grid": true
+          }
+        },
+
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Cats",
+              "Dogs"
+            ],
+            "range": [
+              "#657a58",
+              "#d28a5d"
+            ]
+          }
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "circle",
+        "size": 90,
+        "opacity": 0.75,
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+
+      "encoding": {
+        "x": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Cats",
+            "Dogs"
+          ]
+        },
+
+        "y": {
+          "field": "rehoming_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Cats",
+              "Dogs"
+            ],
+            "range": [
+              "#657a58",
+              "#d28a5d"
+            ]
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "species",
+            "type": "nominal",
+            "title": "Species"
+          },
+          {
+            "field": "rehomed",
+            "type": "quantitative",
+            "title": "Rehomed",
+            "format": ",.0f"
+          },
+          {
+            "field": "total",
+            "type": "quantitative",
+            "title": "Total animals",
+            "format": ",.0f"
+          },
+          {
+            "field": "rehoming_rate",
+            "type": "quantitative",
+            "title": "Rehoming rate",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "domainColor": "#b8b8b8",
+      "tickColor": "#b8b8b8",
+      "gridColor": "#eeeeee"
+    }
+  }
+}

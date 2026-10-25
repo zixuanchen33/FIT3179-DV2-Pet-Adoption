@@ -109,7 +109,7 @@
     {
       "transform": [
         {
-          "filter": "datum.cohort !== 'No children under 5 restriction'"
+          "filter": "datum.cohort !== 'No children under 5 restriction' && datum.cohort !== 'Small puppies' && datum.cohort !== 'Kittens under 6 months'"
         }
       ],
 
@@ -198,6 +198,86 @@
         "baseline": "top",
         "dx": 9,
         "dy": 5,
+        "fontSize": 11,
+        "color": "#555555"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [70, 95]
+          }
+        },
+
+        "y": {
+          "field": "median_tta_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 45]
+          }
+        },
+
+        "text": {
+          "field": "cohort"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.cohort === 'Small puppies'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -9,
+        "dy": 0,
+        "fontSize": 11,
+        "color": "#555555"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "adoption_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [70, 95]
+          }
+        },
+
+        "y": {
+          "field": "median_tta_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 45]
+          }
+        },
+
+        "text": {
+          "field": "cohort"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.cohort === 'Kittens under 6 months'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 9,
+        "dy": 0,
         "fontSize": 11,
         "color": "#555555"
       },

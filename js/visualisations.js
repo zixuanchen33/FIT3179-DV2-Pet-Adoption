@@ -167,3 +167,41 @@ vegaEmbed(
   .catch(function (error) {
     console.error("Error loading Chart 9:", error);
   });
+
+
+// ========================================
+// CHART 10 — RSPCA REHOMING RATE BOX PLOT
+// ========================================
+
+vegaEmbed(
+  "#rspca-boxplot",
+  "js/chart10_rspca_boxplot.json",
+  {
+    actions: false
+  }
+)
+  .then(function () {
+    console.log("Chart 10 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error("Error loading Chart 10:", error);
+  });
+
+
+// ========================================
+// CHART 11 — STATE ADOPTION PROFILES
+// ========================================
+
+vegaEmbed(
+  "#state-parallel",
+  "js/chart11_parallel.json",
+  {
+    actions: false
+  }
+)
+  .then(function () {
+    console.log("Chart 11 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error("Error loading Chart 11:", error);
+  });

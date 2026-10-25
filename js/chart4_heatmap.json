@@ -104,10 +104,53 @@
     },
 
     {
+      "transform": [
+        {
+          "filter": "datum.state === 'SA' && datum.species === 'Dogs'"
+        }
+      ],
+
+      "mark": {
+        "type": "rect",
+        "fillOpacity": 0,
+        "stroke": "#9d4f49",
+        "strokeWidth": 4,
+        "cornerRadius": 5
+      },
+
+      "encoding": {
+        "x": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Cats",
+            "Dogs"
+          ]
+        },
+
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "ACT",
+            "NSW",
+            "NT",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA"
+          ]
+        }
+      }
+    },
+
+    {
       "mark": {
         "type": "text",
         "fontSize": 15,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "dy": -5
       },
 
       "encoding": {
@@ -147,6 +190,52 @@
             "value": "#ffffff"
           },
           "value": "#333333"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'SA' && datum.species === 'Dogs'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#8b3f39",
+        "dy": 13
+      },
+
+      "encoding": {
+        "x": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Cats",
+            "Dogs"
+          ]
+        },
+
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "ACT",
+            "NSW",
+            "NT",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA"
+          ]
+        },
+
+        "text": {
+          "value": "Lowest dog rate"
         }
       }
     }

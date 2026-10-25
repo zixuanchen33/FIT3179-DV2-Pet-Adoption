@@ -1,0 +1,147 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 700,
+  "height": 430,
+
+  "data": {
+    "url": "data/petrescue_state_2025.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "(datum.cat_adoption_rate - 60) / 40",
+      "as": "cat_rate_score"
+    },
+    {
+      "calculate": "(datum.dog_adoption_rate - 60) / 40",
+      "as": "dog_rate_score"
+    },
+    {
+      "calculate": "1 - (datum.cat_median_tta_days / 55)",
+      "as": "cat_speed_score"
+    },
+    {
+      "calculate": "1 - (datum.dog_median_tta_days / 55)",
+      "as": "dog_speed_score"
+    },
+    {
+      "fold": [
+        "cat_rate_score",
+        "cat_speed_score",
+        "dog_rate_score",
+        "dog_speed_score"
+      ],
+      "as": [
+        "metric",
+        "score"
+      ]
+    },
+    {
+      "calculate": "datum.metric === 'cat_rate_score' ? 'Cat adoption rate' : datum.metric === 'cat_speed_score' ? 'Cat adoption speed' : datum.metric === 'dog_rate_score' ? 'Dog adoption rate' : 'Dog adoption speed'",
+      "as": "metric_label"
+    }
+  ],
+
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 90
+    },
+    "strokeWidth": 2.5,
+    "opacity": 0.75
+  },
+
+  "encoding": {
+    "x": {
+      "field": "metric_label",
+      "type": "ordinal",
+      "title": null,
+      "sort": [
+        "Cat adoption rate",
+        "Cat adoption speed",
+        "Dog adoption rate",
+        "Dog adoption speed"
+      ],
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelLimit": 180
+      }
+    },
+
+    "y": {
+      "field": "score",
+      "type": "quantitative",
+      "title": "Relative performance — higher is better",
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      },
+      "axis": {
+        "format": ".0%",
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "grid": true
+      }
+    },
+
+    "detail": {
+      "field": "state"
+    },
+
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State / territory",
+      "scale": {
+        "scheme": "tableau10"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "state_name",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "metric_label",
+        "type": "nominal",
+        "title": "Measure"
+      },
+      {
+        "field": "score",
+        "type": "quantitative",
+        "title": "Relative score",
+        "format": ".1%"
+      }
+    ]
+  },
+
+  "config": {
+    "background": null,
+
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "columns": 4,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+
+    "axis": {
+      "domainColor": "#b8b8b8",
+      "tickColor": "#b8b8b8",
+      "gridColor": "#eeeeee"
+    }
+  }
+}

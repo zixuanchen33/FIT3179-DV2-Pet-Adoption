@@ -31,7 +31,10 @@
           "type": "quantitative",
           "axis": null,
           "scale": {
-            "domain": [-0.5, 3.5]
+            "domain": [
+              -0.5,
+              3.5
+            ]
           }
         },
 
@@ -40,7 +43,10 @@
           "type": "quantitative",
           "axis": null,
           "scale": {
-            "domain": [3.5, -0.5]
+            "domain": [
+              3.5,
+              -0.5
+            ]
           }
         },
 
@@ -51,6 +57,14 @@
           "scale": {
             "domainMid": 0,
             "scheme": "redblue"
+          },
+
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 280,
+            "labelFontSize": 12,
+            "titleFontSize": 12
           }
         },
 
@@ -75,7 +89,7 @@
           {
             "field": "rate_difference",
             "type": "quantitative",
-            "title": "Difference (pp)",
+            "title": "Cat − dog difference (pp)",
             "format": "+.1f"
           }
         ]
@@ -86,8 +100,7 @@
       "mark": {
         "type": "text",
         "fontSize": 18,
-        "fontWeight": "bold",
-        "color": "#ffffff"
+        "fontWeight": "bold"
       },
 
       "encoding": {
@@ -95,7 +108,10 @@
           "field": "tile_x",
           "type": "quantitative",
           "scale": {
-            "domain": [-0.5, 3.5]
+            "domain": [
+              -0.5,
+              3.5
+            ]
           }
         },
 
@@ -103,12 +119,25 @@
           "field": "tile_y",
           "type": "quantitative",
           "scale": {
-            "domain": [3.5, -0.5]
+            "domain": [
+              3.5,
+              -0.5
+            ]
           }
         },
 
         "text": {
           "field": "state"
+        },
+
+        "color": {
+          "condition": [
+            {
+              "test": "abs(datum.rate_difference) >= 10",
+              "value": "#ffffff"
+            }
+          ],
+          "value": "#333333"
         }
       }
     }
@@ -119,13 +148,6 @@
 
     "view": {
       "stroke": null
-    },
-
-    "legend": {
-      "orient": "bottom",
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "gradientLength": 260
     }
   }
 }

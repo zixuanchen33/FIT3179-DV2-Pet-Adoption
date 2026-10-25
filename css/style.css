@@ -37,22 +37,25 @@ body {
   margin: 0 auto;
 
   padding:
-    100px
+    90px
     60px
-    80px;
+    75px;
 
   text-align: center;
 }
 
 .eyebrow {
-  margin-bottom: 12px;
+  margin:
+    0
+    0
+    12px;
 
   font-size: 14px;
   font-weight: 700;
 
   letter-spacing: 3px;
 
-  color: #6b7355;
+  color: #7a7448;
 }
 
 .hero h1 {
@@ -62,20 +65,21 @@ body {
 
   line-height: 1.05;
 
-  color: #363d2f;
+  color: #30382b;
 }
 
 .subtitle {
-  max-width: 750px;
+  max-width: 720px;
 
   margin:
-    28px
+    26px
     auto
     0;
 
-  font-size: 20px;
+  font-size: 19px;
+  line-height: 1.55;
 
-  color: #606060;
+  color: #5d5d5d;
 }
 
 
@@ -86,7 +90,7 @@ body {
 
 .story-section {
   padding:
-    90px
+    80px
     30px;
 
   background-color: #ffffff;
@@ -97,50 +101,54 @@ body {
 }
 
 .section-heading {
-  max-width: 900px;
+  max-width: 860px;
 
   margin:
     0
     auto
-    60px;
+    52px;
 
   text-align: center;
 }
 
 .section-number {
-  margin-bottom: 4px;
+  margin:
+    0
+    0
+    6px;
 
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 700;
 
   letter-spacing: 3px;
 
-  color: #7b8562;
+  color: #8c7e42;
 }
 
 .section-heading h2 {
   margin:
     0
     0
-    16px;
+    14px;
 
   font-size: 40px;
 
   line-height: 1.2;
 
-  color: #363d2f;
+  color: #30382b;
 }
 
 .section-heading > p:last-child {
-  max-width: 700px;
+  max-width: 680px;
 
   margin:
     0
     auto;
 
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.55;
 
-  color: #666666;
+  color: #626262;
 }
 
 
@@ -155,9 +163,11 @@ body {
   margin:
     0
     auto
-    70px;
+    56px;
 
-  padding: 40px;
+  padding:
+    36px
+    40px;
 
   background-color: #ffffff;
 
@@ -167,49 +177,55 @@ body {
     0
     4px
     18px
-    rgba(0, 0, 0, 0.07);
+    rgba(0, 0, 0, 0.065);
 }
 
 .alternate .chart-card {
-  background-color: #fafafa;
+  background-color: #fbfbfa;
 }
 
 .chart-text {
-  max-width: 760px;
+  max-width: 720px;
 
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .chart-label {
-  margin-bottom: 5px;
+  margin:
+    0
+    0
+    5px;
 
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
 
   letter-spacing: 2px;
 
-  color: #7b8562;
+  color: #8c7e42;
 }
 
 .chart-text h3 {
   margin:
     0
     0
-    10px;
+    9px;
 
-  font-size: 28px;
+  font-size: 27px;
 
   line-height: 1.25;
 
-  color: #333333;
+  color: #2f332d;
 }
 
 .chart-text p:last-child {
   margin: 0;
 
-  font-size: 16px;
+  max-width: 680px;
 
-  color: #666666;
+  font-size: 15px;
+  line-height: 1.55;
+
+  color: #606060;
 }
 
 
@@ -221,12 +237,14 @@ body {
 .visualisation {
   width: 100%;
 
-  min-height: 450px;
-
   display: flex;
 
   align-items: center;
   justify-content: center;
+
+  padding:
+    8px
+    0;
 
   overflow-x: auto;
 }
@@ -234,10 +252,12 @@ body {
 .placeholder {
   width: 100%;
 
+  min-height: 360px;
+
   margin: 0;
 
   padding:
-    150px
+    130px
     30px;
 
   text-align: center;
@@ -270,8 +290,118 @@ body {
   justify-content: center;
 }
 
+.vega-embed > div {
+  max-width: 100%;
+}
+
 .vega-embed summary {
   display: none;
+}
+
+
+
+/* ========================================
+   CHART NOTES
+======================================== */
+
+.chart-note {
+  max-width: 800px;
+
+  margin:
+    14px
+    auto
+    0;
+
+  font-size: 13px;
+  line-height: 1.55;
+
+  color: #777777;
+}
+
+
+
+/* ========================================
+   STORY TAKEAWAYS
+======================================== */
+
+.takeaway {
+  max-width: 1000px;
+
+  margin:
+    -10px
+    auto
+    58px;
+
+  padding:
+    22px
+    26px;
+
+  background-color: #f5f1df;
+
+  border-left:
+    4px
+    solid
+    #c49b32;
+
+  border-radius: 8px;
+}
+
+.takeaway h4 {
+  margin:
+    0
+    0
+    7px;
+
+  font-size: 17px;
+
+  color: #30382b;
+}
+
+.takeaway p {
+  margin: 0;
+
+  max-width: 790px;
+
+  font-size: 15px;
+  line-height: 1.55;
+
+  color: #515151;
+}
+
+
+
+/* ========================================
+   CONCLUSION
+======================================== */
+
+.conclusion-section {
+  padding:
+    72px
+    30px;
+
+  background-color: #f4ebc7;
+}
+
+.conclusion-heading {
+  max-width: 820px;
+
+  margin-bottom: 0;
+}
+
+.conclusion-heading .section-number {
+  color: #8a6f1b;
+}
+
+.conclusion-heading h2 {
+  font-size: 42px;
+
+  color: #30382b;
+}
+
+.conclusion-heading > p:last-child {
+  max-width: 730px;
+
+  color: #484848;
 }
 
 
@@ -282,11 +412,11 @@ body {
 
 footer {
   padding:
-    70px
+    64px
     30px
-    35px;
+    32px;
 
-  background-color: #363d2f;
+  background-color: #30382b;
 
   color: #ffffff;
 }
@@ -301,14 +431,14 @@ footer {
   grid-template-columns:
     repeat(3, 1fr);
 
-  gap: 55px;
+  gap: 50px;
 }
 
 .footer-column h4 {
   margin:
     0
     0
-    18px;
+    16px;
 
   font-size: 17px;
 
@@ -319,17 +449,16 @@ footer {
   margin:
     0
     0
-    15px;
+    14px;
 
   font-size: 14px;
-
-  line-height: 1.6;
+  line-height: 1.55;
 
   color: #d8ddcf;
 }
 
 .footer-column a {
-  color: #d9e5b9;
+  color: #e3d68e;
 
   text-decoration: underline;
 
@@ -344,11 +473,11 @@ footer {
   max-width: 1000px;
 
   margin:
-    45px
+    38px
     auto
     0;
 
-  padding-top: 25px;
+  padding-top: 22px;
 
   border-top:
     1px
@@ -362,8 +491,7 @@ footer {
   max-width: 800px;
 
   font-size: 13px;
-
-  line-height: 1.6;
+  line-height: 1.55;
 
   color: #bfc6b5;
 }
@@ -378,9 +506,9 @@ footer {
 
   .hero {
     padding:
-      70px
+      65px
       24px
-      60px;
+      55px;
   }
 
   .subtitle {
@@ -389,26 +517,49 @@ footer {
 
   .story-section {
     padding:
-      65px
+      58px
       18px;
   }
 
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
   .section-heading h2 {
-    font-size: 32px;
+    font-size: 31px;
   }
 
   .chart-card {
-    padding: 24px;
+    margin-bottom: 45px;
+
+    padding:
+      24px
+      20px;
   }
 
   .chart-text h3 {
     font-size: 23px;
   }
 
+  .takeaway {
+    margin:
+      -5px
+      auto
+      48px;
+
+    padding:
+      20px
+      22px;
+  }
+
+  .conclusion-heading h2 {
+    font-size: 32px;
+  }
+
   .footer-content {
     grid-template-columns: 1fr;
 
-    gap: 35px;
+    gap: 32px;
   }
 
 }

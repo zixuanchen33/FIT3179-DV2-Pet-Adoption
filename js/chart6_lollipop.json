@@ -70,7 +70,10 @@
           "type": "quantitative",
           "title": "Median time to adoption (days)",
           "scale": {
-            "domain": [0, 55]
+            "domain": [
+              0,
+              55
+            ]
           },
           "axis": {
             "labelFontSize": 12,
@@ -134,7 +137,10 @@
           "field": "median_days",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 55]
+            "domain": [
+              0,
+              55
+            ]
           }
         },
 
@@ -172,6 +178,124 @@
             "format": ".1f"
           }
         ]
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'ACT' && datum.species === 'Cats'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -10,
+        "dy": -5,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#4f6145"
+      },
+
+      "encoding": {
+        "y": {
+          "field": "state_species",
+          "type": "nominal",
+          "sort": [
+            "ACT — Cats",
+            "ACT — Dogs",
+            "NSW — Cats",
+            "NSW — Dogs",
+            "NT — Cats",
+            "NT — Dogs",
+            "QLD — Cats",
+            "QLD — Dogs",
+            "SA — Cats",
+            "SA — Dogs",
+            "TAS — Cats",
+            "TAS — Dogs",
+            "VIC — Cats",
+            "VIC — Dogs",
+            "WA — Cats",
+            "WA — Dogs"
+          ]
+        },
+
+        "x": {
+          "field": "median_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              55
+            ]
+          }
+        },
+
+        "text": {
+          "value": "Longest cat wait · 49.4 days"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'SA' && datum.species === 'Dogs'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -10,
+        "dy": -5,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#a86545"
+      },
+
+      "encoding": {
+        "y": {
+          "field": "state_species",
+          "type": "nominal",
+          "sort": [
+            "ACT — Cats",
+            "ACT — Dogs",
+            "NSW — Cats",
+            "NSW — Dogs",
+            "NT — Cats",
+            "NT — Dogs",
+            "QLD — Cats",
+            "QLD — Dogs",
+            "SA — Cats",
+            "SA — Dogs",
+            "TAS — Cats",
+            "TAS — Dogs",
+            "VIC — Cats",
+            "VIC — Dogs",
+            "WA — Cats",
+            "WA — Dogs"
+          ]
+        },
+
+        "x": {
+          "field": "median_days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              55
+            ]
+          }
+        },
+
+        "text": {
+          "value": "Longest dog wait · 42.8 days"
+        }
       }
     }
   ],
