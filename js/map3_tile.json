@@ -53,8 +53,12 @@
         "color": {
           "field": "rate_difference",
           "type": "quantitative",
-          "title": "Cat − dog rate (pp)",
+          "title": "Cat − dog adoption rate (pp)",
           "scale": {
+            "domain": [
+              -30,
+              30
+            ],
             "domainMid": 0,
             "scheme": "redblue"
           },
@@ -62,9 +66,10 @@
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
-            "gradientLength": 280,
+            "gradientLength": 300,
             "labelFontSize": 12,
-            "titleFontSize": 12
+            "titleFontSize": 12,
+            "format": "+.0f"
           }
         },
 
